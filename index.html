@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style type="text/css">
+    body {
+  font-family: sans-serif;
+  margin: 2rem;
+  background-color: #C6EBC5;
+}
+.container{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #A1C398;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  height: 100px;
+}
+
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#thankyou {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+</style>
+<body>
+    <div class="container">
+  <h1>Feedback Form</h1>
+  <form action="#" method="post">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name">
+    <br>
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" name="feedback" rows="5" placeholder="Share your thoughts"></textarea>
+    <br>
+    <label for="rating">Rate Us (1-5):</label>
+    <select id="rating" name="rating">
+      <option value="1">1 (Poor)</option>
+      <option value="2">2 (Fair)</option>
+      <option value="3">3 (Good)</option>
+      <option value="4">4 (Very Good)</option>
+      <option value="5">5 (Excellent)</option>
+    </select>
+    <br>
+    <input type="submit" value="Submit Feedback">
+  </form>
+
+  <div id="thankyou" style="display: none;">
+    <h2>Thank You, <span id="username"></span>!</h2>
+    <p>We appreciate your feedback.</p>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+    const thankyou = document.getElementById("thankyou");
+    const username = document.getElementById("username");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const name = document.getElementById("name").value;
+      username.textContent = name;
+      thankyou.style.display = "block"; // Show Thank You message
+      form.reset(); // Reset form after submission
+    });
+  </script>
+  </div>
+</body>
+</html>
